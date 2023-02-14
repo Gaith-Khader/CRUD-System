@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.min.css"
+        integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="quick-nav">
+        <div class="container">
+            <div class="d-flex">
+                <img src="assets/img/logo.png" alt="logo" class="logo py-3">
+                <h1 class="title pt-4">CRUD System</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-3">
+        <div class="row">
+            <div class="col-lg-8 order-1 order-lg-0 mt-5 mt-lg-0">
+                <div class="p-4 rounded bg-white">
+                    <div class="container">
+                        <h4 class="search-title">Search for courses </h4>
+                        <input type="search" placeholder="Search by course name or category ..." id="search"
+                            class="form-control my-3">
+                            
+                        <div class="table-responsive">
+                            <table class="table table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Description</th>
+                                        <th>Update</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tableBody">
+
+                                </tbody>
+                                
+                            </table>
+                            <button id="deleteBtn" class="btn  text-capitalize text-center my-3 dlt-btn">delete all</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 ms-auto">
+                <div class="p-4 rounded bg-white">
+                    <form>
+                        <div class="mb-3">
+                            <label for="">Course Name</label>
+                            <input class="inputs form-control" type="text" placeholder="EX: Full, Back , etc..." id="courseName">
+                            <span class="valid-feedback">Correct</span>
+                            <span class="invalid-feedback">Name must be start by one capital letter and max length is 10 characters</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Course Category</label>
+                            <input class="inputs form-control" type="text" placeholder="EX: Web, Mobile, etc..." id="courseCategory">
+                            <span class="valid-feedback">Correct</span>
+                            <span class="invalid-feedback">Category must be start by one capital letter and max length is 20 characters</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Course Price</label>
+                            <input class="inputs form-control" type="number" placeholder="1$-999$" id="coursePrice">
+                            <span class="valid-feedback">Correct</span>
+                            <span class="invalid-feedback">
+                                Price must me numeric
+                            </span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Course Description</label>
+                            <textarea class="inputs form-control" placeholder="About your course" id="courseDescription"></textarea>
+                            <span class="valid-feedback">Correct</span>
+                            <span class="invalid-feedback">Description max length is 60 characters</span>
+                        </div>
+                        <div id="buttons">
+                            <button class="btn course-add mt-3" id="addBtn" disabled="disabled">Add Course</button>
+                            <button class="btn btn-outline-secondary mt-3" type="reset">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <!-- sweet alert2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.min.js"
+        integrity="sha512-4aFcnPgoxsyUPgn8gNinplVIEoeBizjYPTpmOaUbC3VZQCsRnduAOch9v0Pn30yTeoWq1rIZByAE4/Gg79VPEA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- customized -->
+    <script src="main.js"></script>
+</body>
+
+</html>
